@@ -5,11 +5,11 @@ module JpEmsFee
   class << self
 
     def asia(weight)
-      base(weight, __method__)
+      base(weight, __method__.to_s)
     end
 
     def oceania(weight)
-      base(weight, __method__)
+      base(weight, __method__.to_s)
     end
 
     def north_america(weight)
@@ -25,11 +25,11 @@ module JpEmsFee
     end
 
     def europa(weight)
-      base(weight, __method__)
+      base(weight, __method__.to_s)
     end
 
     def africa(weight)
-      base(weight, __method__)
+      base(weight, __method__.to_s)
     end
 
     def south_america(weight)
@@ -52,11 +52,10 @@ module JpEmsFee
     end
 
     def calculate(weight, area_name)
-      yaml = YAML.load_file(File.expand_path('../../ems_base_file.yaml', __FILE__))
+      yaml = YAML.load_file(File.expand_path('../../jp_ems_fee/price_table.yaml', __FILE__))
       yaml[area_name].each do |r|
         if r.first >= weight
           return r[1]
-          break
         end
       end
     end
