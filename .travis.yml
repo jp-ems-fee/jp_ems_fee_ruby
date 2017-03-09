@@ -1,10 +1,13 @@
-sudo: false
 language: ruby
+sudo: false
 rvm:
-  - "1.9"
-  - "2.0"
-  - "2.2"
-  - "2.2"
-  - "2.3.0"
-
-before_install: gem install bundler -v 1.13.1
+  - 2.0.0
+  - 2.1.10
+  - 2.2.6
+  - 2.3.3
+  - 2.4.0
+before_install:
+  - gem install bundler --no-document -v '~> 1.13.3'
+notifications:
+  email:
+  - littlecub240@gmail.com
