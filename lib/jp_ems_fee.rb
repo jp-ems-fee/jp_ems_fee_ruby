@@ -52,7 +52,7 @@ module JpEmsFee
     end
 
     def calculate(weight, area_name)
-      yaml = YAML.load_file(File.expand_path('../../jp_ems_fee/price_table.yaml', __FILE__))
+      yaml = YAML.load_file(File.expand_path('../../price_table.yaml', __FILE__))
       yaml[area_name].each do |r|
         if r.first >= weight
           return r[1]
